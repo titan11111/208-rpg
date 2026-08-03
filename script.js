@@ -89,6 +89,13 @@ class VillageGame {
     this.keys = {};
     this.interactCooldown = 0;
 
+    // 室内システム
+    this.isIndoors = false;
+    this.currentBuilding = null;
+    this.indoorX = 7;
+    this.indoorY = 7;
+    this.indoorNPCs = [];
+
     this.init();
   }
 
@@ -179,34 +186,69 @@ class VillageGame {
 
   handleMovement() {
     let moved = false;
-    if (this.keys["ArrowUp"]) {
-      if (this.canMove(this.playerX, this.playerY - 1)) {
-        this.playerY -= 1;
-        this.playerDir = "back";
-        moved = true;
+
+    if (this.isIndoors) {
+      // 室内移動
+      if (this.keys["ArrowUp"]) {
+        if (this.indoorY > 1) {
+          this.indoorY -= 1;
+          this.playerDir = "back";
+          moved = true;
+        }
+      }
+      if (this.keys["ArrowDown"]) {
+        if (this.indoorY < 13) {
+          this.indoorY += 1;
+          this.playerDir = "front";
+          moved = true;
+        }
+      }
+      if (this.keys["ArrowLeft"]) {
+        if (this.indoorX > 1) {
+          this.indoorX -= 1;
+          this.playerDir = "left";
+          moved = true;
+        }
+      }
+      if (this.keys["ArrowRight"]) {
+        if (this.indoorX < 13) {
+          this.indoorX += 1;
+          this.playerDir = "right";
+          moved = true;
+        }
+      }
+    } else {
+      // 室外移動
+      if (this.keys["ArrowUp"]) {
+        if (this.canMove(this.playerX, this.playerY - 1)) {
+          this.playerY -= 1;
+          this.playerDir = "back";
+          moved = true;
+        }
+      }
+      if (this.keys["ArrowDown"]) {
+        if (this.canMove(this.playerX, this.playerY + 1)) {
+          this.playerY += 1;
+          this.playerDir = "front";
+          moved = true;
+        }
+      }
+      if (this.keys["ArrowLeft"]) {
+        if (this.canMove(this.playerX - 1, this.playerY)) {
+          this.playerX -= 1;
+          this.playerDir = "left";
+          moved = true;
+        }
+      }
+      if (this.keys["ArrowRight"]) {
+        if (this.canMove(this.playerX + 1, this.playerY)) {
+          this.playerX += 1;
+          this.playerDir = "right";
+          moved = true;
+        }
       }
     }
-    if (this.keys["ArrowDown"]) {
-      if (this.canMove(this.playerX, this.playerY + 1)) {
-        this.playerY += 1;
-        this.playerDir = "front";
-        moved = true;
-      }
-    }
-    if (this.keys["ArrowLeft"]) {
-      if (this.canMove(this.playerX - 1, this.playerY)) {
-        this.playerX -= 1;
-        this.playerDir = "left";
-        moved = true;
-      }
-    }
-    if (this.keys["ArrowRight"]) {
-      if (this.canMove(this.playerX + 1, this.playerY)) {
-        this.playerX += 1;
-        this.playerDir = "right";
-        moved = true;
-      }
-    }
+
     return moved;
   }
 
@@ -240,11 +282,49 @@ class VillageGame {
     if (this.interactCooldown > 0) return;
     this.interactCooldown = 30;
 
-    const location = this.getCurrentLocation();
-    const greeting = GREETINGS[location];
-    if (greeting) {
-      this.messageBox.textContent = greeting;
+    if (this.isIndoors) {
+      // 室内から外に出る
+      this.exitBuilding();
+      this.messageBox.textContent = "外に出た";
+    } else {
+      // 室外から建物に入る
+      const location = this.getCurrentLocation();
+      if (location !== "広場") {
+        this.enterBuilding(location);
+        const building = BUILDINGS[location];
+        this.messageBox.textContent = `${building.name}に入った`;
+      } else {
+        const greeting = GREETINGS[location];
+        if (greeting) {
+          this.messageBox.textContent = greeting;
+        }
+      }
     }
+  }
+
+  enterBuilding(buildingKey) {
+    this.isIndoors = true;
+    this.currentBuilding = buildingKey;
+    this.indoorX = 7;
+    this.indoorY = 7;
+
+    // 室内 NPC を配置
+    const npc = this.npcInstances.find(n => n.home === buildingKey);
+    if (npc) {
+      this.indoorNPCs = [{
+        name: npc.name,
+        x: 10,
+        y: 5,
+        type: npc.type,
+        direction: "front"
+      }];
+    }
+  }
+
+  exitBuilding() {
+    this.isIndoors = false;
+    this.currentBuilding = null;
+    this.indoorNPCs = [];
   }
 
   updateNPCs() {
@@ -303,6 +383,11 @@ class VillageGame {
   }
 
   draw() {
+    if (this.isIndoors) {
+      this.drawIndoor();
+      return;
+    }
+
     const ctx = this.ctx;
 
     // 背景（草）
@@ -392,6 +477,85 @@ class VillageGame {
     ctx.beginPath();
     ctx.arc(this.playerX * GRID_SIZE + GRID_SIZE / 2, this.playerY * GRID_SIZE + GRID_SIZE / 2, 25, 0, Math.PI * 2);
     ctx.stroke();
+  }
+
+  drawIndoor() {
+    const ctx = this.ctx;
+    const building = BUILDINGS[this.currentBuilding];
+
+    // 室内背景（明るい茶色）
+    ctx.fillStyle = "#d4a574";
+    ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+
+    // 床
+    ctx.fillStyle = "#c9a961";
+    ctx.fillRect(0, 300, CANVAS_SIZE, 300);
+
+    // 壁
+    ctx.fillStyle = "#daa520";
+    ctx.fillRect(0, 0, CANVAS_SIZE, 40);
+
+    // 家具配置（ハードコード - 勇者の実家専用）
+    // ベッド（左上）
+    if (this.heroImage) {
+      const bedImg = new Image();
+      bedImg.src = "images/furniture-bed.svg";
+      bedImg.onload = () => ctx.drawImage(bedImg, 40, 80, 120, 100);
+    }
+
+    // テーブル（中央下）
+    if (this.heroImage) {
+      const tableImg = new Image();
+      tableImg.src = "images/furniture-table.svg";
+      tableImg.onload = () => ctx.drawImage(tableImg, 200, 350, 120, 120);
+    }
+
+    // 棚（右上）
+    if (this.heroImage) {
+      const shelfImg = new Image();
+      shelfImg.src = "images/furniture-shelf.svg";
+      shelfImg.onload = () => ctx.drawImage(shelfImg, 420, 100, 100, 150);
+    }
+
+    // ドア（下部）
+    ctx.fillStyle = "#8b6f47";
+    ctx.fillRect(250, 480, 100, 120);
+    ctx.fillStyle = "#a0826d";
+    ctx.fillRect(260, 490, 80, 100);
+    ctx.fillStyle = "#daa520";
+    ctx.beginPath();
+    ctx.arc(335, 540, 5, 0, Math.PI * 2);
+    ctx.fill();
+
+    // プレイヤー描画
+    const px = this.indoorX * GRID_SIZE + GRID_SIZE / 2 - 10;
+    const py = this.indoorY * GRID_SIZE + GRID_SIZE / 2 - 10;
+
+    if (this.heroImage) {
+      ctx.save();
+      ctx.globalAlpha = 0.95;
+      ctx.drawImage(this.heroImage, px, py, 20, 20);
+      ctx.restore();
+    }
+
+    // 室内 NPC 描画
+    this.indoorNPCs.forEach((npc) => {
+      const img = this.villagerImages[npc.type][npc.direction];
+      if (img) {
+        const nx = npc.x * GRID_SIZE + GRID_SIZE / 2 - 10;
+        const ny = npc.y * GRID_SIZE + GRID_SIZE / 2 - 10;
+        ctx.save();
+        ctx.globalAlpha = 0.9;
+        ctx.drawImage(img, nx, ny, 20, 20);
+        ctx.restore();
+      }
+    });
+
+    // UI テキスト
+    ctx.fillStyle = "#333";
+    ctx.font = "12px Arial";
+    ctx.textAlign = "center";
+    ctx.fillText("E キーで出る", CANVAS_SIZE / 2, 30);
   }
 
   updateUI() {
