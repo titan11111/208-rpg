@@ -18,6 +18,8 @@ const BUILDINGS = {
   house5: { x: 7, y: 12, w: 2, h: 2, name: "佐藤さん宅", color: "#ffb6c1" },
 };
 
+const VILLAGER_TYPES = ['farmer', 'daughter', 'elderly', 'child'];
+
 const NPCs = [
   { name: "鍛冶職人トム", home: "smithy", color: "#333" },
   { name: "宿屋の女将", home: "inn", color: "#444" },
@@ -58,10 +60,10 @@ class VillageGame {
     this.heroImage = null;
 
     this.villagerImages = {
-      front: null,
-      back: null,
-      left: null,
-      right: null,
+      farmer: { front: null, back: null, left: null, right: null },
+      daughter: { front: null, back: null, left: null, right: null },
+      elderly: { front: null, back: null, left: null, right: null },
+      child: { front: null, back: null, left: null, right: null },
     };
 
     this.horseImages = {
@@ -106,11 +108,15 @@ class VillageGame {
   }
 
   loadVillagerImages() {
+    const types = ['farmer', 'daughter', 'elderly', 'child'];
     const dirs = ['front', 'back', 'left', 'right'];
-    dirs.forEach(dir => {
-      const img = new Image();
-      img.onload = () => { this.villagerImages[dir] = img; };
-      img.src = `images/villager-${dir}.svg`;
+
+    types.forEach(type => {
+      dirs.forEach(dir => {
+        const img = new Image();
+        img.onload = () => { this.villagerImages[type][dir] = img; };
+        img.src = `images/${type}-${dir}.svg`;
+      });
     });
   }
 
@@ -130,6 +136,7 @@ class VillageGame {
   createNPCs() {
     NPCs.forEach((npc, i) => {
       const building = BUILDINGS[npc.home];
+      const type = VILLAGER_TYPES[Math.floor(Math.random() * VILLAGER_TYPES.length)];
       this.npcInstances.push({
         ...npc,
         x: building.x + 0.5,
@@ -139,6 +146,7 @@ class VillageGame {
         inHome: true,
         exitTimer: Math.random() * 300,
         direction: "front",
+        type: type,
       });
     });
   }
@@ -350,9 +358,9 @@ class VillageGame {
       }
     });
 
-    // NPC の描画（SVG）
+    // NPC の描画（SVG - タイプ別）
     this.npcInstances.forEach((npc) => {
-      const img = this.villagerImages[npc.direction];
+      const img = this.villagerImages[npc.type][npc.direction];
       if (img) {
         const px = npc.x * GRID_SIZE + GRID_SIZE / 2 - 10;
         const py = npc.y * GRID_SIZE + GRID_SIZE / 2 - 10;
