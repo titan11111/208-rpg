@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" shape-rendering="crispEdges">
+<!-- legs -->
+    <rect x="16" y="24" width="3" height="5" fill="#1e3f78"/>
+    <rect x="13" y="24" width="3" height="5" fill="#183568"/>
+    <rect x="16" y="29" width="3" height="3" fill="#5a3a22"/>
+    <rect x="13" y="29" width="3" height="3" fill="#4a2e18"/>
+    <!-- body -->
+    <rect x="11" y="15" width="9" height="10" fill="#3d6db5"/>
+    <rect x="12" y="16" width="7" height="2" fill="#6ea0e8"/>
+    <rect x="14" y="18" width="4" height="4" fill="#f0c93a"/>
+    <rect x="11" y="15" width="1" height="10" fill="#1e3f78"/>
+    <rect x="19" y="15" width="1" height="10" fill="#1e3f78"/>
+    <rect x="12" y="24" width="7" height="1" fill="#5a3a22"/>
+    <!-- right arm tucked BEHIND body — no sword -->
+    <rect x="19" y="16" width="2" height="4" fill="#2f5a9a"/>
+    <!-- shield FOREGROUND (left hand) — mass matches right-view sword -->
+    <rect x="8" y="15" width="4" height="5" fill="#3d6db5"/>
+    <rect x="3" y="13" width="8" height="11" fill="#2f5f9a"/>
+    <rect x="4" y="12" width="6" height="1" fill="#f0c93a"/>
+    <rect x="4" y="24" width="6" height="1" fill="#f0c93a"/>
+    <rect x="2" y="14" width="1" height="9" fill="#f0c93a"/>
+    <rect x="11" y="14" width="1" height="9" fill="#f0c93a"/>
+    <rect x="5" y="16" width="4" height="5" fill="#f0c93a"/>
+    <rect x="6" y="17" width="2" height="3" fill="#ffe66a"/>
+    <rect x="7" y="18" width="2" height="2" fill="#c48a3a"/>
+    <!-- face -->
+    <rect x="11" y="9" width="8" height="7" fill="#f2c7a0"/>
+    <rect x="13" y="11" width="2" height="2" fill="#2a2a2a"/>
+    <rect x="12" y="14" width="2" height="1" fill="#d49a78"/>
+    <!-- helm -->
+    <rect x="10" y="3" width="10" height="8" fill="#3d6db5"/>
+    <rect x="11" y="2" width="8" height="2" fill="#6ea0e8"/>
+    <rect x="14" y="0" width="4" height="2" fill="#f0c93a"/>
+    <rect x="15" y="0" width="2" height="1" fill="#ffe66a"/>
+    <rect x="10" y="8" width="10" height="2" fill="#f0c93a"/>
+    <rect x="9" y="4" width="2" height="5" fill="#3d6db5"/>
+</svg>

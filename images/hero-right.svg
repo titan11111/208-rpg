@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" shape-rendering="crispEdges">
+<!-- legs (same height as front) -->
+    <rect x="13" y="24" width="3" height="5" fill="#1e3f78"/>
+    <rect x="16" y="24" width="3" height="5" fill="#183568"/>
+    <rect x="13" y="29" width="3" height="3" fill="#5a3a22"/>
+    <rect x="16" y="29" width="3" height="3" fill="#4a2e18"/>
+    <!-- body -->
+    <rect x="12" y="15" width="9" height="10" fill="#3d6db5"/>
+    <rect x="13" y="16" width="7" height="2" fill="#6ea0e8"/>
+    <rect x="14" y="18" width="4" height="4" fill="#f0c93a"/>
+    <rect x="12" y="15" width="1" height="10" fill="#1e3f78"/>
+    <rect x="20" y="15" width="1" height="10" fill="#1e3f78"/>
+    <rect x="13" y="24" width="7" height="1" fill="#5a3a22"/>
+    <!-- shield peek BEHIND (left hand, far side) — small -->
+    <rect x="9" y="16" width="3" height="7" fill="#244a78"/>
+    <rect x="9" y="15" width="3" height="1" fill="#c9a227"/>
+    <rect x="9" y="23" width="3" height="1" fill="#c9a227"/>
+    <!-- sword FOREGROUND (right hand) — same scale as front -->
+    <rect x="19" y="15" width="3" height="5" fill="#3d6db5"/>
+    <rect x="21" y="3" width="2" height="1" fill="#ffffff"/>
+    <rect x="21" y="4" width="2" height="10" fill="#dfe6f0"/>
+    <rect x="22" y="5" width="1" height="8" fill="#b8c2d0"/>
+    <rect x="20" y="14" width="4" height="2" fill="#f0c93a"/>
+    <rect x="21" y="16" width="2" height="4" fill="#8b5a2b"/>
+    <rect x="20" y="17" width="4" height="4" fill="#c48a3a"/>
+    <rect x="21" y="18" width="2" height="2" fill="#8b5a2b"/>
+    <!-- face -->
+    <rect x="13" y="9" width="8" height="7" fill="#f2c7a0"/>
+    <rect x="17" y="11" width="2" height="2" fill="#2a2a2a"/>
+    <rect x="18" y="14" width="2" height="1" fill="#d49a78"/>
+    <!-- helm -->
+    <rect x="12" y="3" width="10" height="8" fill="#3d6db5"/>
+    <rect x="13" y="2" width="8" height="2" fill="#6ea0e8"/>
+    <rect x="14" y="0" width="4" height="2" fill="#f0c93a"/>
+    <rect x="15" y="0" width="2" height="1" fill="#ffe66a"/>
+    <rect x="12" y="8" width="10" height="2" fill="#f0c93a"/>
+    <rect x="20" y="4" width="2" height="5" fill="#3d6db5"/>
+</svg>

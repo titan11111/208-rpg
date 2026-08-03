@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <!-- 足 -->
+  <rect x="10" y="28" width="4" height="10" fill="#333"/>
+  <rect x="16" y="28" width="4" height="10" fill="#333"/>
+
+  <!-- ズボン -->
+  <rect x="8" y="20" width="14" height="8" fill="#4a4a4a"/>
+
+  <!-- 上半身（労働着） -->
+  <rect x="8" y="12" width="16" height="10" fill="#8b7355"/>
+
+  <!-- 袖 -->
+  <rect x="4" y="14" width="6" height="6" fill="#a0826d"/>
+
+  <!-- 首 -->
+  <rect x="12" y="10" width="4" height="2" fill="#d4a574"/>
+
+  <!-- 顔（左向き） -->
+  <circle cx="12" cy="6" r="4" fill="#d4a574"/>
+
+  <!-- 帽子（左向き） -->
+  <ellipse cx="10" cy="2" rx="4" ry="2.5" fill="#8b6914"/>
+  <path d="M 14 3 Q 14 0 10 0 Q 8 0 6 2" stroke="#6b5410" stroke-width="0.5" fill="none"/>
+
+  <!-- 目 -->
+  <circle cx="10" cy="5" r="0.8" fill="#000"/>
+
+  <!-- 鼻 -->
+  <line x1="8" y1="5" x2="6" y2="6" stroke="#a0826d" stroke-width="0.5"/>
+</svg>

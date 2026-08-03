@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 32" shape-rendering="crispEdges">
+  <title>hero 4dir DQ-style</title>
+
+  <g id="hero-front" transform="translate(0,0)">
+    <rect x="10" y="9" width="1" height="7" fill="#3d6db5"/>
+    <rect x="12" y="24" width="3" height="5" fill="#1e3f78"/>
+    <rect x="17" y="24" width="3" height="5" fill="#1e3f78"/>
+    <rect x="12" y="29" width="3" height="3" fill="#5a3a22"/>
+    <rect x="17" y="29" width="3" height="3" fill="#5a3a22"/>
+    <rect x="11" y="15" width="10" height="10" fill="#3d6db5"/>
+    <rect x="12" y="16" width="8" height="2" fill="#6ea0e8"/>
+    <rect x="13" y="18" width="6" height="5" fill="#f0c93a"/>
+    <rect x="14" y="19" width="4" height="3" fill="#ffe66a"/>
+    <rect x="11" y="15" width="1" height="10" fill="#1e3f78"/>
+    <rect x="20" y="15" width="1" height="10" fill="#1e3f78"/>
+    <rect x="12" y="24" width="8" height="1" fill="#5a3a22"/>
+    <!-- sword flush to body: blade against cheek/shoulder -->
+    <rect x="8" y="3" width="2" height="1" fill="#ffffff"/>
+    <rect x="8" y="4" width="2" height="10" fill="#dfe6f0"/>
+    <rect x="9" y="5" width="1" height="8" fill="#b8c2d0"/>
+    <rect x="7" y="14" width="4" height="2" fill="#f0c93a"/>
+    <rect x="8" y="16" width="2" height="4" fill="#8b5a2b"/>
+    <!-- shoulder merges into torso; fist covers grip -->
+    <rect x="9" y="15" width="3" height="5" fill="#3d6db5"/>
+    <rect x="7" y="17" width="4" height="4" fill="#c48a3a"/>
+    <rect x="8" y="18" width="2" height="2" fill="#8b5a2b"/>
+    <!-- shield flush -->
+    <rect x="20" y="15" width="3" height="5" fill="#3d6db5"/>
+    <rect x="21" y="14" width="6" height="10" fill="#2f5f9a"/>
+    <rect x="22" y="13" width="4" height="1" fill="#f0c93a"/>
+    <rect x="22" y="24" width="4" height="1" fill="#f0c93a"/>
+    <rect x="20" y="15" width="1" height="8" fill="#f0c93a"/>
+    <rect x="27" y="15" width="1" height="8" fill="#f0c93a"/>
+    <rect x="23" y="17" width="2" height="3" fill="#f0c93a"/>
+    <rect x="23" y="18" width="1" height="1" fill="#ffe66a"/>
+    <rect x="22" y="17" width="2" height="3" fill="#c48a3a"/>
+    <rect x="11" y="9" width="10" height="7" fill="#f2c7a0"/>
+    <rect x="13" y="11" width="2" height="2" fill="#2a2a2a"/>
+    <rect x="17" y="11" width="2" height="2" fill="#2a2a2a"/>
+    <rect x="14" y="14" width="4" height="1" fill="#d49a78"/>
+    <rect x="10" y="3" width="12" height="8" fill="#3d6db5"/>
+    <rect x="11" y="2" width="10" height="2" fill="#6ea0e8"/>
+    <rect x="13" y="1" width="6" height="2" fill="#3d6db5"/>
+    <rect x="14" y="0" width="4" height="2" fill="#f0c93a"/>
+    <rect x="15" y="0" width="2" height="1" fill="#ffe66a"/>
+    <rect x="10" y="8" width="12" height="2" fill="#f0c93a"/>
+    <rect x="9" y="4" width="2" height="5" fill="#3d6db5"/>
+    <rect x="21" y="4" width="2" height="5" fill="#3d6db5"/>
+  </g>
+
+  <g id="hero-back" transform="translate(32,0)">
+    <rect x="12" y="24" width="3" height="5" fill="#1e3f78"/>
+    <rect x="17" y="24" width="3" height="5" fill="#1e3f78"/>
+    <rect x="12" y="29" width="3" height="3" fill="#5a3a22"/>
+    <rect x="17" y="29" width="3" height="3" fill="#5a3a22"/>
+    <rect x="11" y="15" width="10" height="10" fill="#2f5a9a"/>
+    <rect x="12" y="16" width="8" height="2" fill="#4a7fc0"/>
+    <rect x="11" y="15" width="1" height="10" fill="#1e3f78"/>
+    <rect x="20" y="15" width="1" height="10" fill="#1e3f78"/>
+    <rect x="12" y="24" width="8" height="1" fill="#5a3a22"/>
+    <rect x="8" y="15" width="4" height="5" fill="#2f5a9a"/>
+    <rect x="5" y="14" width="5" height="10" fill="#244a78"/>
+    <rect x="6" y="13" width="3" height="1" fill="#c9a227"/>
+    <rect x="6" y="24" width="3" height="1" fill="#c9a227"/>
+    <rect x="7" y="17" width="2" height="3" fill="#a07030"/>
+    <rect x="20" y="15" width="4" height="5" fill="#2f5a9a"/>
+    <rect x="22" y="3" width="2" height="1" fill="#ffffff"/>
+    <rect x="22" y="4" width="2" height="10" fill="#dfe6f0"/>
+    <rect x="21" y="14" width="4" height="2" fill="#f0c93a"/>
+    <rect x="22" y="16" width="2" height="4" fill="#8b5a2b"/>
+    <rect x="21" y="17" width="4" height="4" fill="#c48a3a"/>
+    <rect x="22" y="18" width="2" height="2" fill="#8b5a2b"/>
+    <rect x="10" y="2" width="12" height="14" fill="#3d6db5"/>
+    <rect x="11" y="1" width="10" height="2" fill="#6ea0e8"/>
+    <rect x="14" y="0" width="4" height="2" fill="#f0c93a"/>
+    <rect x="15" y="0" width="2" height="1" fill="#ffe66a"/>
+    <rect x="9" y="4" width="2" height="5" fill="#3d6db5"/>
+    <rect x="21" y="4" width="2" height="5" fill="#3d6db5"/>
+    <rect x="13" y="9" width="6" height="5" fill="#1e3f78"/>
+  </g>
+
+  <g id="hero-right" transform="translate(64,0)">
+    <!-- legs (same height as front) -->
+    <rect x="13" y="24" width="3" height="5" fill="#1e3f78"/>
+    <rect x="16" y="24" width="3" height="5" fill="#183568"/>
+    <rect x="13" y="29" width="3" height="3" fill="#5a3a22"/>
+    <rect x="16" y="29" width="3" height="3" fill="#4a2e18"/>
+    <!-- body -->
+    <rect x="12" y="15" width="9" height="10" fill="#3d6db5"/>
+    <rect x="13" y="16" width="7" height="2" fill="#6ea0e8"/>
+    <rect x="14" y="18" width="4" height="4" fill="#f0c93a"/>
+    <rect x="12" y="15" width="1" height="10" fill="#1e3f78"/>
+    <rect x="20" y="15" width="1" height="10" fill="#1e3f78"/>
+    <rect x="13" y="24" width="7" height="1" fill="#5a3a22"/>
+    <!-- shield peek BEHIND (left hand, far side) — small -->
+    <rect x="9" y="16" width="3" height="7" fill="#244a78"/>
+    <rect x="9" y="15" width="3" height="1" fill="#c9a227"/>
+    <rect x="9" y="23" width="3" height="1" fill="#c9a227"/>
+    <!-- sword FOREGROUND (right hand) — same scale as front -->
+    <rect x="19" y="15" width="3" height="5" fill="#3d6db5"/>
+    <rect x="21" y="3" width="2" height="1" fill="#ffffff"/>
+    <rect x="21" y="4" width="2" height="10" fill="#dfe6f0"/>
+    <rect x="22" y="5" width="1" height="8" fill="#b8c2d0"/>
+    <rect x="20" y="14" width="4" height="2" fill="#f0c93a"/>
+    <rect x="21" y="16" width="2" height="4" fill="#8b5a2b"/>
+    <rect x="20" y="17" width="4" height="4" fill="#c48a3a"/>
+    <rect x="21" y="18" width="2" height="2" fill="#8b5a2b"/>
+    <!-- face -->
+    <rect x="13" y="9" width="8" height="7" fill="#f2c7a0"/>
+    <rect x="17" y="11" width="2" height="2" fill="#2a2a2a"/>
+    <rect x="18" y="14" width="2" height="1" fill="#d49a78"/>
+    <!-- helm -->
+    <rect x="12" y="3" width="10" height="8" fill="#3d6db5"/>
+    <rect x="13" y="2" width="8" height="2" fill="#6ea0e8"/>
+    <rect x="14" y="0" width="4" height="2" fill="#f0c93a"/>
+    <rect x="15" y="0" width="2" height="1" fill="#ffe66a"/>
+    <rect x="12" y="8" width="10" height="2" fill="#f0c93a"/>
+    <rect x="20" y="4" width="2" height="5" fill="#3d6db5"/>
+  </g>
+
+  <g id="hero-left" transform="translate(96,0)">
+    <!-- legs -->
+    <rect x="16" y="24" width="3" height="5" fill="#1e3f78"/>
+    <rect x="13" y="24" width="3" height="5" fill="#183568"/>
+    <rect x="16" y="29" width="3" height="3" fill="#5a3a22"/>
+    <rect x="13" y="29" width="3" height="3" fill="#4a2e18"/>
+    <!-- body -->
+    <rect x="11" y="15" width="9" height="10" fill="#3d6db5"/>
+    <rect x="12" y="16" width="7" height="2" fill="#6ea0e8"/>
+    <rect x="14" y="18" width="4" height="4" fill="#f0c93a"/>
+    <rect x="11" y="15" width="1" height="10" fill="#1e3f78"/>
+    <rect x="19" y="15" width="1" height="10" fill="#1e3f78"/>
+    <rect x="12" y="24" width="7" height="1" fill="#5a3a22"/>
+    <!-- right arm tucked BEHIND body — no sword -->
+    <rect x="19" y="16" width="2" height="4" fill="#2f5a9a"/>
+    <!-- shield FOREGROUND (left hand) — mass matches right-view sword -->
+    <rect x="8" y="15" width="4" height="5" fill="#3d6db5"/>
+    <rect x="3" y="13" width="8" height="11" fill="#2f5f9a"/>
+    <rect x="4" y="12" width="6" height="1" fill="#f0c93a"/>
+    <rect x="4" y="24" width="6" height="1" fill="#f0c93a"/>
+    <rect x="2" y="14" width="1" height="9" fill="#f0c93a"/>
+    <rect x="11" y="14" width="1" height="9" fill="#f0c93a"/>
+    <rect x="5" y="16" width="4" height="5" fill="#f0c93a"/>
+    <rect x="6" y="17" width="2" height="3" fill="#ffe66a"/>
+    <rect x="7" y="18" width="2" height="2" fill="#c48a3a"/>
+    <!-- face -->
+    <rect x="11" y="9" width="8" height="7" fill="#f2c7a0"/>
+    <rect x="13" y="11" width="2" height="2" fill="#2a2a2a"/>
+    <rect x="12" y="14" width="2" height="1" fill="#d49a78"/>
+    <!-- helm -->
+    <rect x="10" y="3" width="10" height="8" fill="#3d6db5"/>
+    <rect x="11" y="2" width="8" height="2" fill="#6ea0e8"/>
+    <rect x="14" y="0" width="4" height="2" fill="#f0c93a"/>
+    <rect x="15" y="0" width="2" height="1" fill="#ffe66a"/>
+    <rect x="10" y="8" width="10" height="2" fill="#f0c93a"/>
+    <rect x="9" y="4" width="2" height="5" fill="#3d6db5"/>
+  </g>
+</svg>

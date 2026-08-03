@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>勇者SVGプレビュー — 018-rpg</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #1a1a22;
+      color: #eee;
+      font-family: "Courier New", monospace;
+      padding: 24px 16px 40px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 18px;
+      color: #f0c93a;
+      margin: 0 0 8px;
+    }
+    p {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+      margin: 0 0 28px;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 720px;
+      margin: 0 auto 32px;
+    }
+    .card {
+      background: #2a2a35;
+      border: 2px solid #555;
+      border-radius: 8px;
+      padding: 16px;
+      width: 150px;
+      text-align: center;
+    }
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 13px;
+      color: #6ea0e8;
+    }
+    .stage {
+      width: 128px;
+      height: 128px;
+      margin: 0 auto;
+      image-rendering: pixelated;
+      background:
+        linear-gradient(45deg, #333 25%, transparent 25%),
+        linear-gradient(-45deg, #333 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #333 75%),
+        linear-gradient(-45deg, transparent 75%, #333 75%);
+      background-size: 12px 12px;
+      background-position: 0 0, 0 6px, 6px -6px, -6px 0;
+      background-color: #3a3a48;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      border: 1px solid #444;
+    }
+    .stage img {
+      width: 128px;
+      height: 128px;
+      image-rendering: pixelated;
+    }
+    .sheet {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .sheet h2 {
+      font-size: 14px;
+      color: #f0c93a;
+      margin: 0 0 12px;
+    }
+    .sheet img {
+      width: 100%;
+      max-width: 640px;
+      height: auto;
+      image-rendering: pixelated;
+      background: #3a3a48;
+      border: 2px solid #555;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .note {
+      max-width: 640px;
+      margin: 20px auto 0;
+      font-size: 11px;
+      color: #888;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>勇者 SVG（4方向）</h1>
+  <p>兜・鎧・右手剣・左手盾 / 既存 hero.png の青×金に合わせてあります</p>
+
+  <div class="row">
+    <div class="card">
+      <h2>正面</h2>
+      <div class="stage">
+        <img src="images/hero-front.svg?v=2" alt="正面" width="128" height="128">
+      </div>
+    </div>
+    <div class="card">
+      <h2>後ろ</h2>
+      <div class="stage">
+        <img src="images/hero-back.svg?v=2" alt="後ろ" width="128" height="128">
+      </div>
+    </div>
+    <div class="card">
+      <h2>右</h2>
+      <div class="stage">
+        <img src="images/hero-right.svg?v=2" alt="右" width="128" height="128">
+      </div>
+    </div>
+    <div class="card">
+      <h2>左</h2>
+      <div class="stage">
+        <img src="images/hero-left.svg?v=2" alt="左" width="128" height="128">
+      </div>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <h2>スプライトシート全体</h2>
+    <img src="images/hero.svg" alt="勇者4方向スプライト">
+    <p class="note">
+      ファイル: images/hero.svg<br>
+      各コマ 32×32px（DQ風ずんぐり）（ドット絵・crispEdges） / 並び: 正面・後ろ・右・左<br>
+      ゲーム組み込み前の見た目確認用プレビューです。
+    </p>
+  </div>
+</body>
+</html>
