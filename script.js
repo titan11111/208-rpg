@@ -64,6 +64,20 @@ class VillageGame {
       right: null,
     };
 
+    this.horseImages = {
+      front: null,
+      back: null,
+      left: null,
+      right: null,
+    };
+
+    this.cowImages = {
+      front: null,
+      back: null,
+      left: null,
+      right: null,
+    };
+
     this.npcInstances = [];
     this.animals = [];
     this.gameTime = 6; // 朝6時
@@ -78,6 +92,7 @@ class VillageGame {
   init() {
     this.loadHeroImage();
     this.loadVillagerImages();
+    this.loadAnimalImages();
     this.createNPCs();
     this.createAnimals();
     this.setupInput();
@@ -99,6 +114,19 @@ class VillageGame {
     });
   }
 
+  loadAnimalImages() {
+    const dirs = ['front', 'back', 'left', 'right'];
+    dirs.forEach(dir => {
+      const horseImg = new Image();
+      horseImg.onload = () => { this.horseImages[dir] = horseImg; };
+      horseImg.src = `images/horse-${dir}.svg`;
+
+      const cowImg = new Image();
+      cowImg.onload = () => { this.cowImages[dir] = cowImg; };
+      cowImg.src = `images/cow-${dir}.svg`;
+    });
+  }
+
   createNPCs() {
     NPCs.forEach((npc, i) => {
       const building = BUILDINGS[npc.home];
@@ -117,11 +145,11 @@ class VillageGame {
 
   createAnimals() {
     // 馬2頭
-    this.animals.push({ type: "horse", x: 6, y: 3, vx: 0.3, vy: 0.1, emoji: "🐴" });
-    this.animals.push({ type: "horse", x: 8, y: 4, vx: -0.2, vy: 0.2, emoji: "🐴" });
+    this.animals.push({ type: "horse", x: 6, y: 3, vx: 0.3, vy: 0.1, direction: "front" });
+    this.animals.push({ type: "horse", x: 8, y: 4, vx: -0.2, vy: 0.2, direction: "front" });
     // 牛2頭
-    this.animals.push({ type: "cow", x: 10, y: 10, vx: 0.15, vy: -0.2, emoji: "🐄" });
-    this.animals.push({ type: "cow", x: 9, y: 11, vx: -0.25, vy: 0.1, emoji: "🐄" });
+    this.animals.push({ type: "cow", x: 10, y: 10, vx: 0.15, vy: -0.2, direction: "front" });
+    this.animals.push({ type: "cow", x: 9, y: 11, vx: -0.25, vy: 0.1, direction: "front" });
   }
 
   setupInput() {
@@ -247,6 +275,13 @@ class VillageGame {
 
   updateAnimals() {
     this.animals.forEach((animal) => {
+      // 方向を計算
+      if (Math.abs(animal.vy) > Math.abs(animal.vx)) {
+        animal.direction = animal.vy > 0 ? "front" : "back";
+      } else {
+        animal.direction = animal.vx > 0 ? "right" : "left";
+      }
+
       animal.x += animal.vx;
       animal.y += animal.vy;
 
@@ -301,12 +336,18 @@ class VillageGame {
       ctx.fillText("(E)", x + w / 2, y + h / 2 + 8);
     }
 
-    // 動物の描画
-    ctx.font = "20px Arial";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
+    // 動物の描画（SVG）
     this.animals.forEach((animal) => {
-      ctx.fillText(animal.emoji, animal.x * GRID_SIZE + GRID_SIZE / 2, animal.y * GRID_SIZE + GRID_SIZE / 2);
+      const images = animal.type === "horse" ? this.horseImages : this.cowImages;
+      const img = images[animal.direction];
+      if (img) {
+        const px = animal.x * GRID_SIZE + GRID_SIZE / 2 - 10;
+        const py = animal.y * GRID_SIZE + GRID_SIZE / 2 - 10;
+        ctx.save();
+        ctx.globalAlpha = 0.9;
+        ctx.drawImage(img, px, py, 20, 20);
+        ctx.restore();
+      }
     });
 
     // NPC の描画（SVG）

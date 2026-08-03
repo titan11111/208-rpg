@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <!-- 前足 -->
+  <rect x="13" y="26" width="3" height="12" fill="#333"/>
+  <rect x="7" y="26" width="3" height="12" fill="#333"/>
+
+  <!-- 後ろ足 -->
+  <rect x="18" y="26" width="2" height="12" fill="#222"/>
+  <rect x="10" y="26" width="2" height="12" fill="#222"/>
+
+  <!-- 胴体（横向き） -->
+  <ellipse cx="16" cy="16" rx="8" ry="7" fill="#8b6f47"/>
+
+  <!-- 首 -->
+  <path d="M 10 12 Q 8 10 7 8" stroke="#9d7e5c" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- 頭（左向き） -->
+  <ellipse cx="6" cy="5" rx="3" ry="3.5" fill="#9d7e5c"/>
+
+  <!-- 鼻 -->
+  <ellipse cx="4" cy="6" rx="1.5" ry="1" fill="#6b5a3f"/>
+
+  <!-- 目 -->
+  <circle cx="6" cy="3" r="0.7" fill="#000"/>
+
+  <!-- 耳 -->
+  <polygon points="7,2 7,-1 6,1" fill="#9d7e5c"/>
+
+  <!-- たてがみ（左向き） -->
+  <path d="M 7 5 Q 6 3 5 4" fill="#6b5a3f"/>
+  <path d="M 9 8 Q 8 6 7 7" fill="#6b5a3f"/>
+
+  <!-- 尾 -->
+  <path d="M 22 16 Q 28 14 30 18" stroke="#6b5a3f" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg>

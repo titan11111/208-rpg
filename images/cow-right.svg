@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <!-- 前足 -->
+  <rect x="24" y="24" width="4" height="14" fill="#222"/>
+  <rect x="30" y="24" width="4" height="14" fill="#222"/>
+
+  <!-- 後ろ足 -->
+  <rect x="20" y="24" width="3" height="14" fill="#111"/>
+  <rect x="28" y="24" width="3" height="14" fill="#111"/>
+
+  <!-- 胴体（横向き） -->
+  <ellipse cx="24" cy="14" rx="9" ry="8" fill="#3d3d3d"/>
+
+  <!-- 首 -->
+  <path d="M 31 11 Q 33 9 34 7" stroke="#4a4a4a" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- 頭（右向き） -->
+  <ellipse cx="35" cy="4" rx="3" ry="3.5" fill="#4a4a4a"/>
+
+  <!-- 角 -->
+  <line x1="34" y1="1" x2="36" y2="-1" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- 鼻 -->
+  <ellipse cx="37" cy="5" rx="1.5" ry="1" fill="#2a2a2a"/>
+
+  <!-- 目 -->
+  <circle cx="35" cy="2" r="0.7" fill="#000"/>
+
+  <!-- 模様 -->
+  <ellipse cx="28" cy="12" rx="2.5" ry="2" fill="#2a2a2a" opacity="0.5"/>
+
+  <!-- 尾 -->
+  <path d="M 18 14 Q 12 12 10 16" stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg>
