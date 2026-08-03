@@ -18,7 +18,7 @@ const BUILDINGS = {
   house5: { x: 7, y: 12, w: 2, h: 2, name: "佐藤さん宅", color: "#ffb6c1" },
 };
 
-const VILLAGER_TYPES = ['farmer', 'daughter', 'elderly', 'child', 'hermit'];
+const VILLAGER_TYPES = ['farmer'];
 
 const NPCs = [
   { name: "鍛冶職人トム", home: "smithy", color: "#333" },
@@ -61,24 +61,6 @@ class VillageGame {
 
     this.villagerImages = {
       farmer: { front: null, back: null, left: null, right: null },
-      daughter: { front: null, back: null, left: null, right: null },
-      elderly: { front: null, back: null, left: null, right: null },
-      child: { front: null, back: null, left: null, right: null },
-      hermit: { front: null, back: null, left: null, right: null },
-    };
-
-    this.horseImages = {
-      front: null,
-      back: null,
-      left: null,
-      right: null,
-    };
-
-    this.cowImages = {
-      front: null,
-      back: null,
-      left: null,
-      right: null,
     };
 
     this.npcInstances = [];
@@ -102,7 +84,6 @@ class VillageGame {
   init() {
     this.loadHeroImage();
     this.loadVillagerImages();
-    this.loadAnimalImages();
     this.createNPCs();
     this.createAnimals();
     this.setupInput();
@@ -128,18 +109,6 @@ class VillageGame {
     });
   }
 
-  loadAnimalImages() {
-    const dirs = ['front', 'back', 'left', 'right'];
-    dirs.forEach(dir => {
-      const horseImg = new Image();
-      horseImg.onload = () => { this.horseImages[dir] = horseImg; };
-      horseImg.src = `images/horse-${dir}.svg`;
-
-      const cowImg = new Image();
-      cowImg.onload = () => { this.cowImages[dir] = cowImg; };
-      cowImg.src = `images/cow-${dir}.svg`;
-    });
-  }
 
   createNPCs() {
     NPCs.forEach((npc, i) => {
@@ -161,11 +130,11 @@ class VillageGame {
 
   createAnimals() {
     // 馬2頭
-    this.animals.push({ type: "horse", x: 6, y: 3, vx: 0.3, vy: 0.1, direction: "front" });
-    this.animals.push({ type: "horse", x: 8, y: 4, vx: -0.2, vy: 0.2, direction: "front" });
+    this.animals.push({ type: "horse", x: 6, y: 3, vx: 0.3, vy: 0.1, emoji: "🐴" });
+    this.animals.push({ type: "horse", x: 8, y: 4, vx: -0.2, vy: 0.2, emoji: "🐴" });
     // 牛2頭
-    this.animals.push({ type: "cow", x: 10, y: 10, vx: 0.15, vy: -0.2, direction: "front" });
-    this.animals.push({ type: "cow", x: 9, y: 11, vx: -0.25, vy: 0.1, direction: "front" });
+    this.animals.push({ type: "cow", x: 10, y: 10, vx: 0.15, vy: -0.2, emoji: "🐄" });
+    this.animals.push({ type: "cow", x: 9, y: 11, vx: -0.25, vy: 0.1, emoji: "🐄" });
   }
 
   setupInput() {
@@ -364,13 +333,6 @@ class VillageGame {
 
   updateAnimals() {
     this.animals.forEach((animal) => {
-      // 方向を計算
-      if (Math.abs(animal.vy) > Math.abs(animal.vx)) {
-        animal.direction = animal.vy > 0 ? "front" : "back";
-      } else {
-        animal.direction = animal.vx > 0 ? "right" : "left";
-      }
-
       animal.x += animal.vx;
       animal.y += animal.vy;
 
@@ -430,18 +392,12 @@ class VillageGame {
       ctx.fillText("(E)", x + w / 2, y + h / 2 + 8);
     }
 
-    // 動物の描画（SVG）
+    // 動物の描画（emoji）
+    ctx.font = "20px Arial";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
     this.animals.forEach((animal) => {
-      const images = animal.type === "horse" ? this.horseImages : this.cowImages;
-      const img = images[animal.direction];
-      if (img) {
-        const px = animal.x * GRID_SIZE + GRID_SIZE / 2 - 10;
-        const py = animal.y * GRID_SIZE + GRID_SIZE / 2 - 10;
-        ctx.save();
-        ctx.globalAlpha = 0.9;
-        ctx.drawImage(img, px, py, 20, 20);
-        ctx.restore();
-      }
+      ctx.fillText(animal.emoji, animal.x * GRID_SIZE + GRID_SIZE / 2, animal.y * GRID_SIZE + GRID_SIZE / 2);
     });
 
     // NPC の描画（SVG - タイプ別）
@@ -481,7 +437,6 @@ class VillageGame {
 
   drawIndoor() {
     const ctx = this.ctx;
-    const building = BUILDINGS[this.currentBuilding];
 
     // 室内背景（明るい茶色）
     ctx.fillStyle = "#d4a574";
@@ -494,28 +449,6 @@ class VillageGame {
     // 壁
     ctx.fillStyle = "#daa520";
     ctx.fillRect(0, 0, CANVAS_SIZE, 40);
-
-    // 家具配置（ハードコード - 勇者の実家専用）
-    // ベッド（左上）
-    if (this.heroImage) {
-      const bedImg = new Image();
-      bedImg.src = "images/furniture-bed.svg";
-      bedImg.onload = () => ctx.drawImage(bedImg, 40, 80, 120, 100);
-    }
-
-    // テーブル（中央下）
-    if (this.heroImage) {
-      const tableImg = new Image();
-      tableImg.src = "images/furniture-table.svg";
-      tableImg.onload = () => ctx.drawImage(tableImg, 200, 350, 120, 120);
-    }
-
-    // 棚（右上）
-    if (this.heroImage) {
-      const shelfImg = new Image();
-      shelfImg.src = "images/furniture-shelf.svg";
-      shelfImg.onload = () => ctx.drawImage(shelfImg, 420, 100, 100, 150);
-    }
 
     // ドア（下部）
     ctx.fillStyle = "#8b6f47";
