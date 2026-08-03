@@ -18,7 +18,7 @@ const BUILDINGS = {
   house5: { x: 7, y: 12, w: 2, h: 2, name: "佐藤さん宅", color: "#ffb6c1" },
 };
 
-const VILLAGER_TYPES = ['farmer', 'daughter', 'elderly', 'child'];
+const VILLAGER_TYPES = ['farmer', 'daughter', 'elderly', 'child', 'hermit'];
 
 const NPCs = [
   { name: "鍛冶職人トム", home: "smithy", color: "#333" },
@@ -64,6 +64,7 @@ class VillageGame {
       daughter: { front: null, back: null, left: null, right: null },
       elderly: { front: null, back: null, left: null, right: null },
       child: { front: null, back: null, left: null, right: null },
+      hermit: { front: null, back: null, left: null, right: null },
     };
 
     this.horseImages = {
